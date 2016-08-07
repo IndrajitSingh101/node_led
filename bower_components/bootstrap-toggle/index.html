@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script> if (window.location.href.indexOf('minhur.github.io') > 0) window.location.replace('http://www.bootstraptoggle.com') </script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="msvalidate.01" content="3638AEFC99423BA5CB586805286C39AA" />
+	<meta name="description" content="Bootstrap Toggle is a highly flexible Bootstrap plugin that converts checkboxes into toggles." />
+	<meta name="keywords" content="bootstrap, toggle, switch, bootstrap-toggle, bootstrap-switch" />
+	<meta name="author" content="metatags generator">
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="1 month">
+	<title>LED on_off</title>
+	<link rel="canonical" href="http://www.bootstraptoggle.com">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="doc/stylesheet.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<header>
+			<div class="container">
+				<h1>Bootstrap Toggle</h1>
+				<p>Bootstrap Toggle is a highly flexible Bootstrap plugin that converts checkboxes into toggles</p>
+				<div class="mast-links">
+				</div>
+			</div>
+		
+	</header>
+
+	<main>
+		<div class="container">
+			<div>
+				<input id="led_on_off" type="checkbox" unchecked data-toggle="toggle">
+				<span class="label-info"><div id="response_text" /></span>
+			</div>
+
+			
+				<script>
+					$(function() {
+						$('#led_on_off').change(function() {
+							
+						var flag=$(this).prop('checked');
+						if(flag==true)
+						{
+						
+							$.ajax({
+							 type:'GET',
+						         data:'',
+							 url:'/on',
+							 dataType:'JSON'
+							}).done(function(response)
+							{
+
+								$('#response_text').text(response.status);
+							
+							});
+						}
+						else
+						{
+						 
+							$.ajax({
+							 type:'GET',
+						         data:'',
+							 url:'/off',
+							 dataType:'JSON'
+							}).done(function(response)
+							{
+
+								$('#response_text').text(response.status);
+							
+							});
+
+						}
+
+						
+
+						})
+					})
+				</script>
+			
+		
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+	<script src="doc/script.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-toggle.js"></script>
+	
+</body>
+</html>
